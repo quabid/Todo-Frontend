@@ -12,7 +12,7 @@ const signup = {
 			const error = response;
 			const ctx = {
 				title: 'Sign Up',
-				message: error.output.statusCode === 404 ? 'page not found' : error.message
+				error: error.output.statusCode === 404 ? 'page not found' : error.message
 			};
 
 			return h.view('auth/signin', ctx).code(error.output.statusCode);
