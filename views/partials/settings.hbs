@@ -1,0 +1,28 @@
+<form class="grid-container fluid cell auto" method="post" action="">
+    <div class="cell auto">
+        <label>
+            <h3>
+                First Name
+            </h3>
+        </label>
+        <input type="text" placeholder="First name" name="fname" required>
+    </div>
+
+    <div class="cell auto">
+        <label>
+            <h3>
+                Last Name
+            </h3>
+        </label>
+        <input type="text" placeholder="Last name" name="lname" required>
+    </div>
+
+    <div class="cell auto">
+        <label>
+            <h3>Email</h3>
+        </label>
+        <input type="email" placeholder="Email" name="email" value="{{user.email}}" required>
+    </div>
+
+    <input type="submit" class="button primary" value="Submit">
+</form>

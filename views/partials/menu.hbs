@@ -1,0 +1,41 @@
+<div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+    <button class="menu-icon" type="button" data-toggle="example-menu"></button>
+    <div class="title-bar-title">Menu</div>
+</div>
+{{#if credentials}}
+<div class="top-bar" id="example-menu">
+    <div class="top-bar-left align-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">{{#if user}} {{user.email}} {{else}}Todo App{{/if}}</li>
+            <li>
+            <li><a href="/user">Dashboard</a></li>
+            <li><a href="/signout">Sign Out</a></li>
+            </li>
+        </ul>
+    </div>
+    <div class="top-bar-right align-right">
+        <ul class="menu">
+            <li><input type="search" placeholder="Search"></li>
+            <li><button type="button" class="button">Search</button></li>
+        </ul>
+    </div>
+</div>
+{{else}}
+<div class="top-bar" id="example-menu">
+    <div class="top-bar-left align-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">Todo App</li>
+            <li>
+                <a href="/">Home</a>
+                <ul class="menu vertical">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Site Map</a></li>
+                </ul>
+            </li>
+            <li><a href="/signin">Sign In</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+        </ul>
+    </div>
+</div>
+{{/if}}

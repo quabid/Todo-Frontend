@@ -1,0 +1,12 @@
+{
+    "verbose": true,
+    "ignore": [
+        "*.test.js",
+        "fixtures/*",
+        "node_modules"
+    ],
+    "watch": [
+        "./","./public","./views"
+    ],
+    "ext": "js,json,html,css,hbs,md"
+}

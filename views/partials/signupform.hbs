@@ -1,0 +1,32 @@
+<form action="/signup" method="post">
+    <div class="input-group">
+        <span class="input-group-label">
+            <i class="fas fa-envelope"></i>
+        </span>
+        <input class="input-group-field" type="email" name="email" placeholder="Email" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-label">
+            <i class="fas fa-lock"></i>
+        </span>
+        <input class="input-group-field" type="password" name="pwd1" placeholder="Create password" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-label">
+            <i class="fas fa-lock"></i>
+        </span>
+        <input class="input-group-field" type="password" name="pwd2" placeholder="Confirm password" required>
+    </div>
+
+    {{#if error}}
+    <p class="lead">
+        {{error}}
+    </p>
+    {{/if}}
+
+    <div class="input-group-button">
+        <input type="submit" class="button" value="Submit">
+    </div>
+</form>

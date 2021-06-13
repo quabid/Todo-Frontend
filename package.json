@@ -1,0 +1,26 @@
+{
+  "name": "todo-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/basic": "^6.0.0",
+    "@hapi/cookie": "^11.0.2",
+    "@hapi/glue": "^8.0.0",
+    "@hapi/hapi": "^20.1.4",
+    "@hapi/inert": "^6.0.3",
+    "@hapi/vision": "^6.1.0",
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "handlebars": "^4.7.7",
+    "joi": "^17.4.0"
+  }
+}
