@@ -4,7 +4,51 @@
     <li class="accordion-item" data-accordion-item data-allow-all-closed="true" style="width:100%;">
         <a href="#" class="accordion-title">{{title}}</a>
         <div class="accordion-content" data-tab-content>
-            {{body}}
+            <form class="grid-container fluid cell auto" method="post" action="/todos/remove">
+                <div class="cell auto">
+                    <label>
+                        <h6>
+                            Title
+                        </h6>
+                    </label>
+                    <input type="text" value="{{title}}" name="title" required>
+                </div>
+
+                <div class="cell auto">
+                    <textarea style="border:none;" type="text" name="body" required>{{body}}</textarea>
+                </div>
+
+                {{#if start}}
+                <div class="cell auto">
+                    <label>
+                        <h6>
+                            Start Date
+                        </h6>
+                    </label>
+                    <input type="text" value="{{start}}" name="startdate" required>
+                </div>
+                {{/if}}
+
+                {{#if end}}
+                <div class="cell auto">
+                    <label>
+                        <h6>
+                            End Date
+                        </h6>
+                    </label>
+                    <input type="text" value="{{end}}" name="enddate" required>
+                </div>
+                {{/if}}
+
+                <div class="cell auto">
+                    <button class="button tiny success" style="border-radius: 5px; padding: 5px;font-weight:bolder;">
+                        Completed?
+                    </button>
+                </div>
+
+                <input type="hidden" value="{{_id}}" name="_id" readonly>
+                <input type="hidden" value="{{_rev}}" name="_rev" readonly>
+            </form>
         </div>
     </li>
     {{/each}}
