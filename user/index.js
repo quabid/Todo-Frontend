@@ -1,5 +1,6 @@
 import Joi from 'joi';
 import Axios from 'axios';
+import { removeTodo } from '../custom_modules/index.js';
 
 const user = {
 	register: async (server, options) => {
@@ -18,7 +19,7 @@ const user = {
 					}
 				})
 					.then((data) => {
-						console.log(data.data.records.docs);
+						// console.log(data.data.records.docs);
 						return res.view('user/dashboard', {
 							title: 'Dashboard',
 							records: data.data.records.docs
@@ -62,7 +63,7 @@ const user = {
 					}
 				})
 					.then((data) => {
-						console.log(data.data);
+						// console.log(data.data);
 						return res.redirect('/user');
 					})
 					.catch((err) => {
@@ -79,22 +80,18 @@ const user = {
 				auth: 'session'
 			},
 			handler: (req, res) => {
-				const { name, _id, _rev } = req.payload;
-				const data = {
-					name: name,
-					id: _id,
-					rev: _rev
-				};
-
-				if (req.payload.startdate) {
-					data.startdate = req.payload.startdate;
-				}
-
-				if (req.payload.enddate) {
-					data.enddate = req.payload.enddate;
-				}
-
-				return res.redirect('/user');
+				const { _id, _rev } = req.payload;
+				const token = req.auth.credentials.token;
+				console.log(`Remove ID: ${_id} and Revision: ${_rev} Token: ${token}\n`);
+				return removeTodo(_id, _rev, token)
+					.then((data) => {
+						console.log(data);
+						return res.redirect('/user');
+					})
+					.catch((err) => {
+						console.log(err);
+						return res.redirect('/user');
+					});
 			}
 		});
 	},
