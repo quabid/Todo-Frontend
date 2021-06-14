@@ -14,11 +14,14 @@ export const validate = async (req, email, password, res) => {
 			switch (response.status.toString()) {
 				case '200':
 					console.log(`\n\tResponse Data: ${JSON.stringify(response.data)}\n`);
-					return {
-						isValid: true,
-						credentials: response.data
-					};
-
+					if (response.data.status) {
+						return { isValid: false };
+					} else {
+						return {
+							isValid: true,
+							credentials: response.data
+						};
+					}
 				default:
 					return {
 						isValid: false,

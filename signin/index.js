@@ -34,7 +34,8 @@ const signin = {
 					}),
 					failAction: (req, res, err) => {
 						console.log(err);
-						throw err;
+						// throw err;
+						return res.view('auth/signin', { title: 'Sign In', error: err });
 					}
 				}
 			},

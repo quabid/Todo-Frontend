@@ -1,1 +1,24 @@
-<h1 class="text-center">Dashboard</h1>
+<ul class="accordion" data-responsive-accordion-tabs="accordion large-tabs" data-allow-all-closed="true"
+    id="dashboard-tabs" style="width:100%;margin-top:1rem;">
+    <li class="tabs-title is-active">
+        <a href="#todos" aria-selected="true">Todos</a>
+    </li>
+    <li class="tabs-title">
+        <a href="#addtodo" aria-selected="true">Add Todo</a>
+    </li>
+    <li class="tabs-title"><a href="#settings">Settings</a></li>
+</ul>
+
+<div class="tabs-content" data-tabs-content="dashboard-tabs" style="width:100%;">
+    <div class="tabs-panel is-active" id="todos" style="width:100%;">
+        {{>todos}}
+    </div>
+
+    <div class="tabs-panel" id="addtodo" style="width:100%;">
+        {{>addtodo}}
+    </div>
+
+    <div class="tabs-panel" id="settings" style="width:100%;">
+        {{>settings}}
+    </div>
+</div>
