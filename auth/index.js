@@ -6,7 +6,7 @@ const auth = {
 	register: async (server) => {
 		await server.register(basic);
 		await server.register(cookie);
-		server.auth.strategy('simple', 'basic', { validate });
+		server.auth.strategy('simple', 'basic', { validate: validate });
 		server.auth.strategy('session', 'cookie', {
 			cookie: {
 				name: 'userId',

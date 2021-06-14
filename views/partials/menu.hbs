@@ -6,7 +6,7 @@
 <div class="top-bar" id="example-menu">
     <div class="top-bar-left align-left">
         <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text">{{#if user}} {{user.email}} {{else}}Todo App{{/if}}</li>
+            <li class="menu-text">{{#if credentials.email}} {{credentials.email}} {{else}}Todo App{{/if}}</li>
             <li>
             <li><a href="/user">Dashboard</a></li>
             <li><a href="/signout">Sign Out</a></li>

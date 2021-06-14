@@ -5,8 +5,8 @@ export const validate = async (req, email, password, res) => {
 		url: 'http://192.168.1.71:4000/auth/signin',
 		method: 'post',
 		data: {
-			email,
-			password
+			email: email,
+			password: password
 		}
 	})
 		.then((response) => {

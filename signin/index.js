@@ -2,23 +2,25 @@ import Joi from 'joi';
 
 const signin = {
 	register: async (server, options) => {
-		const preResponse = (req, res) => {
+		/* const preResponse = (req, res) => {
 			const response = req.response;
 
 			if (!response.isBoom) {
 				return res.continue;
+			} else {
+				const error = response;
+				const ctx = {
+					title: 'Sign In',
+					error: error.output.statusCode === 404 ? 'page not found' : error.message
+				};
+
+				console.log(`Context ${JSON.stringify(ctx)}\n`);
+
+				return res.view('auth/signup', ctx).code(error.output.statusCode);
 			}
-
-			const error = response;
-			const ctx = {
-				title: 'Sign Up',
-				error: error.output.statusCode === 404 ? 'page not found' : error.message
-			};
-
-			return res.view('auth/signin', ctx).code(error.output.statusCode);
 		};
 
-		server.ext('onPreResponse', preResponse);
+		server.ext('onPreResponse', preResponse); */
 
 		server.route({
 			method: 'POST',
@@ -37,6 +39,8 @@ const signin = {
 				}
 			},
 			handler: (req, res) => {
+				const { email, password } = req.payload;
+				console.log(`Signed In with ${email} and ${password}\n`);
 				if (req.auth.isAuthenticated) {
 					req.cookieAuth.set({
 						token: req.auth.credentials.token,
