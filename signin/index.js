@@ -31,8 +31,8 @@ const signin = {
 						password: Joi.string().label('Password ').required()
 					}),
 					failAction: (req, res, err) => {
-						console.log(err.details.message);
-						return err;
+						console.log(err);
+						throw err;
 					}
 				}
 			},

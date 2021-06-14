@@ -1,4 +1,5 @@
 import Joi from 'joi';
+import { register } from '../custom_modules/index.js';
 
 const signup = {
 	register: async (server, options) => {
@@ -31,12 +32,20 @@ const signup = {
 						pwd2: Joi.string().valid(Joi.ref('pwd1')).label("Passwords don't match").required()
 					}),
 					failAction: (req, res, err) => {
+						console.log(err);
 						throw err;
 					}
 				}
 			},
 			handler: (req, res) => {
-				return res.redirect('/signin');
+				const { email, pwd1 } = req.payload;
+				return register(email, pwd1)
+					.then((data) => {
+						return res.redirect('/signin');
+					})
+					.catch((err) => {
+						return res.redirect('/signup');
+					});
 			}
 		});
 
