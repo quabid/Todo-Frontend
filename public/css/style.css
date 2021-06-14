@@ -9,3 +9,11 @@ input[type="submit"] {
 	padding: 5px;
 	border-radius: 5px;
 }
+
+h6 {
+	font-weight: bolder;
+}
+
+input[type="text"] {
+	border: none;
+}
