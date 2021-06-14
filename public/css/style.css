@@ -17,3 +17,11 @@ h6 {
 input[type="text"] {
 	border: none;
 }
+
+.button {
+	font-weight: bolder;
+}
+
+.button .success {
+	font-size: 1.3rem;
+}
