@@ -18,7 +18,7 @@ const user = {
 					}
 				})
 					.then((data) => {
-						console.log(data);
+						console.log(data.data.records.docs);
 						return res.view('user/dashboard', {
 							title: 'Dashboard',
 							records: data.data.records.docs
@@ -40,12 +40,12 @@ const user = {
 					payload: Joi.object({
 						title: Joi.string().required(),
 						body: Joi.string().required(),
-						startdate: Joi.any().allow(''),
-						enddate: Joi.any().allow('')
+						startdate: Joi.date().max(Joi.ref('enddate')).allow(''),
+						enddate: Joi.date().allow('')
 					}),
 					failAction: (req, res, err) => {
 						console.log(err.message);
-						return res.view('user/dashboard', { title: 'Dashboard', error: err.message });
+						throw err;
 					}
 				}
 			},
@@ -76,27 +76,12 @@ const user = {
 			method: 'POST',
 			path: '/todos/remove',
 			config: {
-				auth: 'session',
-				validate: {
-					payload: Joi.object({
-						title: Joi.string().required(),
-						body: Joi.string().required(),
-						startdate: Joi.any().allow(''),
-						enddate: Joi.any().allow(''),
-						_id: Joi.any().required(),
-						_rev: Joi.any().required()
-					}),
-					failAction: (req, res, err) => {
-						console.log(err.message);
-						return res.view('user/dashboard', { title: 'Dashboard', error: err.message });
-					}
-				}
+				auth: 'session'
 			},
 			handler: (req, res) => {
-				const { title, body, _id, _rev } = req.payload;
+				const { name, _id, _rev } = req.payload;
 				const data = {
-					title: title,
-					body: body,
+					name: name,
 					id: _id,
 					rev: _rev
 				};
