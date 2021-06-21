@@ -1,11 +1,12 @@
-<form class="grid-container fluid cell auto" method="post" action="">
+<form class="grid-container fluid cell auto" method="post" action="/user/settings">
     <div class="cell auto">
         <label>
             <h3>
                 First Name
             </h3>
         </label>
-        <input type="text" placeholder="First name" name="fname" required>
+        <input type="text" {{#if profile.fname}} value="{{profile.fname}}" {{else}} placeholder=" First name" {{/if}}
+            name="fname">
     </div>
 
     <div class="cell auto">
@@ -13,8 +14,8 @@
             <h3>
                 Last Name
             </h3>
-        </label>
-        <input type="text" placeholder="Last name" name="lname" required>
+        </label><input type="text" {{#if profile.lname}} value="{{profile.lname}}" {{else}} placeholder=" Last name"
+            {{/if}} name="lname">
     </div>
 
     <div class="cell auto">

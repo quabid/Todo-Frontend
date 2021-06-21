@@ -41,7 +41,6 @@ const signin = {
 			},
 			handler: (req, res) => {
 				const { email, password } = req.payload;
-				console.log(`Signed In with ${email} and ${password}\n`);
 				if (req.auth.isAuthenticated) {
 					req.cookieAuth.set({
 						token: req.auth.credentials.token,
