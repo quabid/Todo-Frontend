@@ -1,5 +1,6 @@
 import Joi from 'joi';
 import Axios from 'axios';
+import dayjs from 'dayjs';
 import { removeTodo } from '../custom_modules/index.js';
 
 const user = {
@@ -35,8 +36,7 @@ const user = {
 								return res.view('user/dashboard', {
 									title: 'Dashboard',
 									records: todos.data.records.docs,
-									profile: profile.data.payload,
-									records: todos.data.records.docs
+									profile: profile.data.payload
 								});
 							})
 							.catch((err) => {
@@ -113,6 +113,14 @@ const user = {
 			},
 			handler: (req, res) => {
 				const payload = req.payload;
+
+				console.log(`\n\t\tTodo Payload: ${JSON.stringify(payload)}\n\n`);
+
+				payload.startdate = dayjs(payload.startdate).format('MM/DD/YYYY');
+				payload.enddate = dayjs(payload.enddate).format('MM/DD/YYYY');
+
+				console.log(`\n\t\tEdited Todo Payload: ${JSON.stringify(payload)}\n\n`);
+
 				return Axios({
 					method: 'post',
 					url: 'http://192.168.1.71:4000/api/todos/add',
