@@ -114,8 +114,10 @@ const user = {
 			handler: (req, res) => {
 				const payload = req.payload;
 
-				payload.startdate = dayjs(payload.startdate).format('MM/DD/YYYY');
-				payload.enddate = dayjs(payload.enddate).format('MM/DD/YYYY');
+				if (payload.startdate && payload.enddate) {
+					payload.startdate = dayjs(payload.startdate).format('MM/DD/YYYY');
+					payload.enddate = dayjs(payload.enddate).format('MM/DD/YYYY');
+				}
 
 				return Axios({
 					method: 'post',
