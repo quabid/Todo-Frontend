@@ -11,7 +11,7 @@
                             Title
                         </h6>
                     </label>
-                    <input type="text" value="{{title}}" name="title" required>
+                    <input type="text" value="{{title}}" name="title" readonly>
                 </div>
 
                 <div class="cell auto">
@@ -20,7 +20,7 @@
                             Body
                         </h6>
                     </label>
-                    <textarea style="border:none;" type="text" name="body" required>{{body}}</textarea>
+                    <textarea style="border:none;" type="text" name="body" readonly>{{body}}</textarea>
                 </div>
 
                 {{#if start}}
@@ -30,7 +30,7 @@
                             Start Date
                         </h6>
                     </label>
-                    <input type="text" value="{{ start}}" name="startdate" required>
+                    <input type="text" value="{{start}}" name="startdate" readonly>
                 </div>
                 {{/if}}
 
@@ -41,7 +41,7 @@
                             End Date
                         </h6>
                     </label>
-                    <input type="text" value="{{end}}" name="enddate" required>
+                    <input type="text" value="{{end}}" name="enddate" readonly>
                 </div>
                 {{/if}}
 
