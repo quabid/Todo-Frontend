@@ -114,12 +114,8 @@ const user = {
 			handler: (req, res) => {
 				const payload = req.payload;
 
-				console.log(`\n\t\tTodo Payload: ${JSON.stringify(payload)}\n\n`);
-
 				payload.startdate = dayjs(payload.startdate).format('MM/DD/YYYY');
 				payload.enddate = dayjs(payload.enddate).format('MM/DD/YYYY');
-
-				console.log(`\n\t\tEdited Todo Payload: ${JSON.stringify(payload)}\n\n`);
 
 				return Axios({
 					method: 'post',
