@@ -41,3 +41,10 @@ input[type="email"] {
 	font-weight: normal;
 	font-size: 1.4rem;
 }
+
+input:read-only,
+textarea:read-only {
+	background-color: aliceblue;
+	color: black;
+	border: none;
+}
