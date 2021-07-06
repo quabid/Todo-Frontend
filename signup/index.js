@@ -23,9 +23,11 @@ const signup = {
 				const { email, pwd1 } = req.payload;
 				return register(email, pwd1)
 					.then((data) => {
+						console.log(`\n\t\tSign Up Response: ${JSON.stringify(data.data)}`);
 						return res.redirect('/signin');
 					})
 					.catch((err) => {
+						console.log(`\n\t\tSign Up Error: ${err}`);
 						return res.redirect('/signup');
 					});
 			}

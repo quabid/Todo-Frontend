@@ -12,9 +12,11 @@ const user = {
 				auth: 'session'
 			},
 			handler: (req, res) => {
+				console.log(`\n\t\tGet Todos with User Id: ${JSON.stringify(req.auth.credentials)}\n\n`);
+
 				return Axios({
 					method: 'get',
-					url: 'http://192.168.1.71:4000/api/todos/',
+					url: `http://192.168.1.71:4000/api/todos/${req.auth.credentials.userId}`,
 					headers: {
 						Authorization: `Bearer ${req.auth.credentials.token}`
 					}
@@ -23,7 +25,7 @@ const user = {
 						// console.log(data.data.records.docs);
 						return Axios({
 							method: 'get',
-							url: 'http://192.168.1.71:4000/user/profile',
+							url: `http://192.168.1.71:4000/user/profile/${req.auth.credentials.token}`,
 							headers: {
 								Authorization: `Bearer ${req.auth.credentials.token}`
 							}

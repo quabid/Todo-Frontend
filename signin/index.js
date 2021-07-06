@@ -42,9 +42,12 @@ const signin = {
 			handler: (req, res) => {
 				const { email, password } = req.payload;
 				if (req.auth.isAuthenticated) {
+					console.log(`\n\t\tPost Signin Credentials: ${JSON.stringify(req.auth.credentials)}\n\n`);
+
 					req.cookieAuth.set({
 						token: req.auth.credentials.token,
-						email: req.auth.credentials.email
+						email: req.auth.credentials.email,
+						userId: req.auth.credentials.id
 					});
 					return res.redirect('/user');
 				} else {
