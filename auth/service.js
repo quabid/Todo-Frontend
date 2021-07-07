@@ -34,6 +34,7 @@ export const validate = async (req, email, password, res) => {
 			}
 		})
 		.catch((err) => {
+			console.log(`\n\n\t\t\tSign In Attempt Error: ${err}\n\n\n`);
 			return {
 				isValid: false,
 				credentials: null
