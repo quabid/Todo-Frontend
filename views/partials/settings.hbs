@@ -5,8 +5,8 @@
                 First Name
             </h3>
         </label>
-        <input type="text" {{#if profile.fname}} value="{{profile.fname}}" {{else}} placeholder=" First name" {{/if}}
-            name="fname">
+        <input type="text" {{#if credentials.profile.fname}} value="{{credentials.profile.fname}}" {{else}}
+            placeholder=" First name" {{/if}} name="fname">
     </div>
 
     <div class="cell auto">
@@ -14,8 +14,8 @@
             <h3>
                 Last Name
             </h3>
-        </label><input type="text" {{#if profile.lname}} value="{{profile.lname}}" {{else}} placeholder=" Last name"
-            {{/if}} name="lname">
+        </label><input type="text" {{#if credentials.profile.lname}} value="{{credentials.profile.lname}}" {{else}}
+            placeholder=" Last name" {{/if}} name="lname">
     </div>
 
     <div class="cell auto">
