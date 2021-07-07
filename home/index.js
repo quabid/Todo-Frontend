@@ -19,7 +19,7 @@ const home = {
 			method: [ 'GET' ],
 			path: '/',
 			handler: (req, res) => {
-				return res.view('home/index', { title: 'Home' });
+				return res.view('home/index', { title: 'RMediaTech' });
 			}
 		});
 	},
