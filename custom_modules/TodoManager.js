@@ -13,3 +13,16 @@ export const removeTodo = async (tid, rev, token) => {
 		}
 	});
 };
+
+export const addTodo = async (payload, token) => {
+	return Axios({
+		method: 'post',
+		url: 'http://192.168.1.71:4000/api/todos/add',
+		data: {
+			payload
+		},
+		headers: {
+			Authorization: `Bearer ${token}`
+		}
+	});
+};

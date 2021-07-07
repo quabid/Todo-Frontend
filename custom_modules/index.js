@@ -1,4 +1,4 @@
 import { register } from './SignUp.js';
-import { removeTodo } from './TodoManager.js';
+import { removeTodo, addTodo } from './TodoManager.js';
 
-export {  register, removeTodo };
+export { register, removeTodo, addTodo };

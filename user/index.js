@@ -1,7 +1,7 @@
 import Joi from 'joi';
 import Axios from 'axios';
 import dayjs from 'dayjs';
-import { removeTodo } from '../custom_modules/index.js';
+import { removeTodo, addTodo } from '../custom_modules/index.js';
 
 const user = {
 	register: async (server, options) => {
@@ -121,16 +121,7 @@ const user = {
 					payload.enddate = dayjs(payload.enddate).format('MM/DD/YYYY');
 				}
 
-				return Axios({
-					method: 'post',
-					url: 'http://192.168.1.71:4000/api/todos/add',
-					data: {
-						payload
-					},
-					headers: {
-						Authorization: `Bearer ${req.auth.credentials.token}`
-					}
-				})
+				return addTodo(payload, req.auth.credentials.token)
 					.then((data) => {
 						// console.log(data.data);
 						return res.redirect('/user');
