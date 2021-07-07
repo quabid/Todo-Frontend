@@ -154,6 +154,29 @@ const user = {
 					});
 			}
 		});
+
+		server.route({
+			method: 'POST',
+			path: '/user/search',
+			config: {
+				auth: 'session',
+				validate: {
+					payload: Joi.object({
+						searchterm: Joi.string().required()
+					}),
+					failAction: (req, res, err) => {
+						return res.redirect('/user');
+					}
+				}
+			},
+			handler: (req, res) => {
+				const { searchterm } = req.payload;
+
+				console.log(`\n\n\t\t\tSearch Payload: ${searchterm}\n\n`);
+
+				return res.redirect('/user');
+			}
+		});
 	},
 	pkg: {
 		name: 'user'
